@@ -1,0 +1,18 @@
+.content-cards-jobs {
+	box-shadow: 5px 5px 20px #76aaef, -5px -5px 20px #5f5f5f;
+
+	padding: 1rem;
+	border-radius: 1rem;
+	margin: 0.7rem;
+	max-width: 440px;
+}
+
+.id-destaque {
+	font-weight: bold;
+	color: #5f5f5f;
+	text-align: left;
+}
+
+.span-destaque {
+	font-weight: bold;
+}

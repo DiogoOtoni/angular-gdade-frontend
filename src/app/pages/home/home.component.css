@@ -1,0 +1,19 @@
+.container-home-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	border-bottom: 1px solid black;
+}
+
+.search-area-show {
+	display: flex;
+	flex-direction: row;
+
+	align-items: center;
+	flex-wrap: wrap;
+}
+.item-form-search {
+	margin: 0.3rem;
+}

@@ -1,0 +1,25 @@
+header {
+  text-align: center;
+
+  border-bottom: 1px solid black;
+}
+
+nav{
+  margin: 1rem 0;
+}
+
+ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  text-decoration: none;
+  list-style: none;
+}
+
+li{
+  border: 1px solid #1A73E8;
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}

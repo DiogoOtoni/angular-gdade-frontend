@@ -1,0 +1,28 @@
+<div class="container-home-page">
+	<div>
+		<form>
+			<div class="search-area-show">
+				<div class="item-form-search">
+					<label for="select-search">Buscar por:</label>
+					<select name="select-search" id="select-search">
+						<option value="jobName" selected>Nome</option>
+						<option value="descricao">Descricao</option>
+						<option value="empresa">Empresa</option>
+						<option value="empAnun">Empresa anunciante</option>
+					</select>
+				</div>
+				<div class="item-form-search">
+					<input type="text" name="search-input" id="search-input" placeholder="Pesquisar" />
+				</div>
+				<div class="buttons">
+					<button type="submit" class="btn-default" id="search-button">
+						Buscar
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<app-aplication-card></app-aplication-card>
+
+</div>

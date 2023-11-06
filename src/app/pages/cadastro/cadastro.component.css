@@ -1,0 +1,38 @@
+.container-cadastro-page{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.box-cadastro {
+	text-align: center;
+	border-radius: 2rem;
+	box-shadow: 5px 5px 20px #76aaef, -5px -5px 20px #5f5f5f;
+	padding: 1rem;
+	margin: 0.7rem;
+
+	width: 70%;
+
+}
+
+.item-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	margin: 0.5rem 0;
+}
+
+.item-form > input,
+#search-input {
+	width: 100%;
+	padding: 0.2rem 0.4rem;
+}
+
+textarea {
+	width: 100%;
+	resize: none;
+	height: 200px;
+	padding: 0.5rem 0 0 0.5rem;
+}
