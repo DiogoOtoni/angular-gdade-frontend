@@ -1,9 +1,32 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
+import {IJob} from '../model/IJob';
+import { first, delay } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class AplicationsService {
 
-  constructor() { }
+	private readonly API = "http://localhost:8080/api/jobs"; //cuidado com a primeira BARRA
+
+	constructor(private httpClient: HttpClient) { }
+
+	list() {
+		return this.httpClient.get<IJob[]>(this.API).pipe(first(), delay(2000));
+	}
+
+	loadById(id: number) {
+		return this.httpClient.get<IJob>(`${this.API}/${id}`);
+	}
+
+	create(record: Partial<IJob>) {
+
+	}
+
+	remove() {
+
+	}
+
+
 }

@@ -23,6 +23,13 @@
 		</form>
 	</div>
 
-	<app-aplication-card></app-aplication-card>
+	<app-aplication-card
+		*ngIf="jobs$ | async as jobs; else espera"
+		[jobs]="jobs"
+	></app-aplication-card>
+
+	<ng-template #espera>
+		<div><p>CARREGANDO</p></div>
+	</ng-template>
 
 </div>

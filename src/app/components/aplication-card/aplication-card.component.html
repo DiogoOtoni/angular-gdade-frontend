@@ -1,10 +1,15 @@
-<div class="content-cards-jobs">
-	<p class="id-destaque"> <span>#ID JOB</span> </p>
-	<h3>NOME</h3>
-	<p> <span class="span-destaque">Empresa:</span> EMPRESA </p>
-	<p> <span class="span-destaque"><a href="LINK EMPRESA" target="_blank">Link da empresa</a></span></p>
-	<p> <span class="span-destaque">Anunciante:</span> EMPRESA ANUNCIANTE</p>
-	<p> <span class="span-destaque"><a href="LINK EMPRESA ANUNCIANTE" target="_blank">Link do anúncio</a></span></p>
-	<p> <span class="span-destaque">DATA EM STRING</span></p>
-	<p> <span class="span-destaque">HORA EM STRING</span></p>
+<div class="container-cards">
+	<div class="content-cards-jobs" *ngFor="let job of jobs">
+		<p class="id-destaque"> <span>#{{job.id_job}}</span> </p>
+		<h3>{{job.jobName}}</h3>
+		<p> <span class="span-destaque">Empresa:</span> {{job.empresa}} </p>
+		<p> <span class="span-destaque"><a href="{{job.link}}" target="_blank">Link da empresa</a></span></p>
+		<p> <span class="span-destaque">Anunciante:</span> {{job.empAnun}}</p>
+		<p> <span class="span-destaque"><a href="{{job.linkAnun}}" target="_blank">Link do anúncio</a></span></p>
+		<p> <span class="span-destaque">{{job.data}}</span></p>
+		<p> <span class="span-destaque">{{job.hora}}</span></p>
+		<div class="button-details">
+			<button class="btn-details">DETALHES</button>
+		</div>
+	</div>
 </div>
