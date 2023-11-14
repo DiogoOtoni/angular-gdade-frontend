@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CadastroComponent } from './cadastro.component';
+import { JobsFormComponent } from './jobs-form.component';
 
-describe('CadastroComponent', () => {
-  let component: CadastroComponent;
-  let fixture: ComponentFixture<CadastroComponent>;
+describe('JobsFormComponent', () => {
+  let component: JobsFormComponent;
+  let fixture: ComponentFixture<JobsFormComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CadastroComponent]
+      declarations: [JobsFormComponent]
     });
-    fixture = TestBed.createComponent(CadastroComponent);
+    fixture = TestBed.createComponent(JobsFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

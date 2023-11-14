@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import {IJob} from 'src/app/model/IJob';
+import { AplicationsService } from 'src/app/services/aplications.service';
 
 @Component({
   selector: 'app-aplication-card',
@@ -10,8 +12,9 @@ export class AplicationCardComponent {
 
 	@Input() jobs: IJob[] = [];
 
-	constructor(){
+	constructor(private router: Router){	}
 
+	toDetails(job: IJob){
+		this.router.navigate(['details', job.id_job]);
 	}
-
 }

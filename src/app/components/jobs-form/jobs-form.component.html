@@ -1,0 +1,38 @@
+<div class="container-cadastro-page">
+	<div class="box-cadastro">
+		<h2>CADASTRO</h2>
+		<form [formGroup]="form" autocomplete="off">
+			<div class="form-cadastro">
+				<div class="item-form">
+					<label>Nome da vaga:</label>
+					<input type="text" formControlName="jobName"/>
+				</div>
+				<div class="item-form">
+					<label>Descrição da vaga:</label>
+					<textarea type="" formControlName="descricao"></textarea>
+				</div>
+				<div class="item-form">
+					<label>Empresa da vaga:</label>
+					<input type="text" formControlName="empresa"/>
+				</div>
+				<div class="item-form">
+					<label>Link da empresa:</label>
+					<input type="url" formControlName="link"/>
+				</div>
+				<div class="item-form">
+					<label>Empresa de anúncio da vaga:</label>
+					<input type="text" formControlName="empAnun"/>
+				</div>
+				<div class="item-form">
+					<label>Link do anúncio da vaga:</label>
+					<input type="url" formControlName="linkAnun"/>
+				</div>
+				<div class="buttons">
+					<button type="submit" class="btn-primary">
+						Adicionar
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

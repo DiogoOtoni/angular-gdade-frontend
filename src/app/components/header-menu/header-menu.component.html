@@ -1,9 +1,17 @@
 <header>
-  <h1>GESTOR DE APLICAÇÕES DE EMPREGO</h1>
-  <nav>
-    <ul>
-      <li>TODAS AS APLICAÇÕES</li> <!--HOME-->
-      <li>CADASTRO</li>
-    </ul>
-  </nav>
+	<h1>GESTOR DE APLICAÇÕES DE EMPREGO</h1>
+	<nav>
+		<ul>
+			<li>
+				<a [routerLink]="['/']">
+					<button class="btn-primary">TODAS AS APLICAÇÕES</button>
+				</a>
+			</li>
+			<li>
+				<a [routerLink]="['/cadastro']">
+					<button class="btn-primary">CADASTRO</button>
+				</a>
+			</li>
+		</ul>
+	</nav>
 </header>

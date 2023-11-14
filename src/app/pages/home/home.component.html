@@ -1,5 +1,5 @@
 <div class="container-home-page">
-	<div>
+	<div class="content-form-search">
 		<form>
 			<div class="search-area-show">
 				<div class="item-form-search">
@@ -15,21 +15,23 @@
 					<input type="text" name="search-input" id="search-input" placeholder="Pesquisar" />
 				</div>
 				<div class="buttons">
-					<button type="submit" class="btn-default" id="search-button">
+					<button type="submit" class="btn-terc" id="search-button">
 						Buscar
 					</button>
 				</div>
 			</div>
 		</form>
 	</div>
-
-	<app-aplication-card
+	<div class="content-cards">
+		<app-aplication-card
 		*ngIf="jobs$ | async as jobs; else espera"
 		[jobs]="jobs"
-	></app-aplication-card>
-
-	<ng-template #espera>
-		<div><p>CARREGANDO</p></div>
-	</ng-template>
+		></app-aplication-card>
+		<ng-template #espera>
+			<div>
+				<p>CARREGANDO</p>
+			</div>
+		</ng-template>
+	</div>
 
 </div>
