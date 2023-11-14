@@ -28,8 +28,11 @@
 					<input type="url" formControlName="linkAnun"/>
 				</div>
 				<div class="buttons">
-					<button type="submit" class="btn-primary">
-						Adicionar
+					<button type="submit" class="btn-primary" (click)="onSubmit()">
+						Salvar
+					</button>
+					<button type="submit" class="btn-secondary" (click)="onCancel()">
+						Cancelar
 					</button>
 				</div>
 			</div>

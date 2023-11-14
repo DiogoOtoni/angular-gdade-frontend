@@ -20,8 +20,19 @@ export class AplicationsService {
 		return this.httpClient.get<IJob>(`${this.API}/${id}`);
 	}
 
-	create(record: Partial<IJob>) {
+	save(record: Partial<IJob>, id: number){
+		if(id){
+			return this.update(record, id);
+		}
+		return this.create(record);
+	}
 
+	private create(record: Partial<IJob>) {
+		return this.httpClient.post<IJob>(this.API, record).pipe(first());
+	}
+
+	private update(record: Partial<IJob>, id: number){
+		return this.httpClient.patch<IJob>(`${this.API}/${id}`, record).pipe(first());
 	}
 
 	remove() {
