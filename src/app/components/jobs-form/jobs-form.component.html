@@ -27,6 +27,16 @@
 					<label>Link do anúncio da vaga:</label>
 					<input type="url" formControlName="linkAnun"/>
 				</div>
+				<div class="item-form">
+					<p>Descrição de status da vaga:</p>
+					<div
+					formArrayName="statusDescription"
+					*ngFor="let status of statusDescription.controls; let i = index">
+						<input type="text" [formControlName]="i">
+					</div>
+					<button (click)="addStatusDescription()" class="btn-terc">Adicionar status description</button>
+
+				</div>
 				<div class="buttons">
 					<button type="submit" class="btn-primary" (click)="onSubmit()">
 						Salvar

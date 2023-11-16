@@ -28,6 +28,13 @@ export class AplicationsService {
 	}
 
 	private create(record: Partial<IJob>) {
+		const dataEHora = new Date();
+		const data = dataEHora.toLocaleDateString();
+		const hora = dataEHora.toLocaleTimeString();
+
+		record.data = data;
+		record.hora = hora;
+
 		return this.httpClient.post<IJob>(this.API, record).pipe(first());
 	}
 
@@ -35,9 +42,10 @@ export class AplicationsService {
 		return this.httpClient.patch<IJob>(`${this.API}/${id}`, record).pipe(first());
 	}
 
-	remove() {
+	// remove(id: number) {
+	// 	return this.httpClient.patch<IJob>(`${this.API}/del/${id}`, id).pipe(first());
 
-	}
+	// }
 
 
 }

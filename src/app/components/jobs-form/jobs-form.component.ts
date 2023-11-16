@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, NonNullableFormBuilder, UntypedFormArray, Validators } from '@angular/forms';
+import { FormGroup, NonNullableFormBuilder, UntypedFormArray, Validators, FormArray } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 import { IJob } from 'src/app/model/IJob';
@@ -35,10 +35,35 @@ export class JobsFormComponent implements OnInit {
 				empAnun: [job.empAnun],
 				linkAnun: [job.linkAnun],
 				data: [job.data],
-				hora: [job.hora]
+				hora: [job.hora],
+				statusDescription: this.formBuilder.array(this.retrieveJobsStatusDescription(job))
 			}
 		);
 
+	}
+
+	private retrieveJobsStatusDescription(job: IJob){
+		const statusDescription = [];
+
+		if(job.statusDescription){
+			job.statusDescription.forEach(statusDesc => statusDescription.push(this.createStatusDescription(statusDesc)));
+		}else{
+			statusDescription.push(this.createStatusDescription())
+		}
+
+		return statusDescription;
+	}
+
+	private createStatusDescription(statusDesc: string = ''){
+		return this.formBuilder.control(statusDesc)
+	}
+
+	get statusDescription(){
+		return this.form.get('statusDescription') as FormArray;
+	}
+
+	addStatusDescription(){
+		this.statusDescription.push(this.formBuilder.control(''));
 	}
 
 	onSubmit() {
