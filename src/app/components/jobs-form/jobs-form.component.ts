@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, NonNullableFormBuilder, UntypedFormArray, Validators, FormArray } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { IJob } from 'src/app/model/IJob';
 import { AplicationsService } from 'src/app/services/aplications.service';
@@ -14,12 +14,16 @@ import { AplicationsService } from 'src/app/services/aplications.service';
 export class JobsFormComponent implements OnInit {
 
 	form!: FormGroup;
+	@Input() contem: boolean = false;
+	@Input() idShow!: number;
+	@Input() activeStatus!: boolean;
 
 	constructor(
 		private formBuilder: NonNullableFormBuilder,
 		private aplicationsService: AplicationsService,
 		private route: ActivatedRoute,
-		private location: Location
+		private location: Location,
+		private router: Router
 	) { }
 
 	ngOnInit(): void {
@@ -40,6 +44,13 @@ export class JobsFormComponent implements OnInit {
 			}
 		);
 
+		if(job.id_job){
+			this.contem = true;
+			this.idShow = job.id_job;
+		}
+		if(job.activeStatus){
+			this.activeStatus = job.activeStatus;
+		}
 	}
 
 	private retrieveJobsStatusDescription(job: IJob){
@@ -76,9 +87,24 @@ export class JobsFormComponent implements OnInit {
 		)
 
 		console.log(this.form.value)
+		this.goToHome();
+	}
+
+	goToHome(){
+		this.router.navigate([''])
 	}
 
 	onCancel() {
-		this.location.back();
+		this.goToHome();
+		// this.location.back();
+	}
+
+	onDelete(){
+		this.aplicationsService.remove(this.idShow).subscribe(
+			data => console.log(data),
+			error => console.log(error)
+		);
+
+		this.goToHome();
 	}
 }

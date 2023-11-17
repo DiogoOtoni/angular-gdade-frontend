@@ -42,10 +42,9 @@ export class AplicationsService {
 		return this.httpClient.patch<IJob>(`${this.API}/${id}`, record).pipe(first());
 	}
 
-	// remove(id: number) {
-	// 	return this.httpClient.patch<IJob>(`${this.API}/del/${id}`, id).pipe(first());
-
-	// }
+	remove(id: number) {
+		return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
+	}
 
 
 }

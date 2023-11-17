@@ -1,43 +1,55 @@
 <div class="container-cadastro-page">
 	<div class="box-cadastro">
+		<div class="header-form" *ngIf="contem">
+			<p>#{{idShow}}</p>
+			<p *ngIf="activeStatus; else elseBlock">ATIVO</p>
+			<ng-template #elseBlock>
+				<p>INATIVO</p>
+			</ng-template>
+		</div>
 		<h2>CADASTRO</h2>
 		<form [formGroup]="form" autocomplete="off">
 			<div class="form-cadastro">
 				<div class="item-form">
-					<label>Nome da vaga:</label>
+					<label class="labels-and-p">Nome da vaga:</label>
 					<input type="text" formControlName="jobName"/>
 				</div>
 				<div class="item-form">
-					<label>Descrição da vaga:</label>
-					<textarea type="" formControlName="descricao"></textarea>
+					<label class="labels-and-p">Descrição da vaga:</label>
+					<textarea class="textarea" formControlName="descricao"></textarea>
 				</div>
 				<div class="item-form">
-					<label>Empresa da vaga:</label>
+					<label class="labels-and-p">Empresa da vaga:</label>
 					<input type="text" formControlName="empresa"/>
 				</div>
 				<div class="item-form">
-					<label>Link da empresa:</label>
+					<label class="labels-and-p">Link da empresa:</label>
 					<input type="url" formControlName="link"/>
 				</div>
 				<div class="item-form">
-					<label>Empresa de anúncio da vaga:</label>
+					<label class="labels-and-p">Empresa de anúncio da vaga:</label>
 					<input type="text" formControlName="empAnun"/>
 				</div>
 				<div class="item-form">
-					<label>Link do anúncio da vaga:</label>
+					<label class="labels-and-p">Link do anúncio da vaga:</label>
 					<input type="url" formControlName="linkAnun"/>
 				</div>
 				<div class="item-form">
-					<p>Descrição de status da vaga:</p>
-					<div
-					formArrayName="statusDescription"
-					*ngFor="let status of statusDescription.controls; let i = index">
-						<input type="text" [formControlName]="i">
-					</div>
-					<button (click)="addStatusDescription()" class="btn-terc">Adicionar status description</button>
+					<p class="labels-and-p">Descrição de status da vaga:</p>
+					<div class="div-status">
 
+						<div class="div-status" formArrayName="statusDescription" *ngFor="let status of statusDescription.controls; let i = index">
+							<input type="text" [formControlName]="i" class="input-status">
+						</div>
+					</div>
+						<button (click)="addStatusDescription()" class="btn-terc">
+						Adicionar status description
+					</button>
 				</div>
 				<div class="buttons">
+					<button *ngIf="idShow" type="submit" class="btn-secondary" (click)="onDelete()">
+						INATIVAR
+					</button>
 					<button type="submit" class="btn-primary" (click)="onSubmit()">
 						Salvar
 					</button>

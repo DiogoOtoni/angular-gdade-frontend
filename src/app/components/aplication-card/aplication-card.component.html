@@ -1,6 +1,12 @@
 <div class="container-cards">
 	<div class="content-cards-jobs" *ngFor="let job of jobs">
-		<p class="id-destaque"> <span>#{{job.id_job}}</span> </p>
+		<div class="header-destaque">
+			<p> <span>#{{job.id_job}}</span> </p>
+			<p *ngIf="job.activeStatus; else elseBlock"> ATIVO </p>
+			<ng-template #elseBlock>
+				<p> INATIVO </p>
+			</ng-template>
+		</div>
 		<h3>{{job.jobName}}</h3>
 		<p> <span class="span-destaque">Empresa:</span> {{job.empresa}} </p>
 		<p> <span class="span-destaque"><a href="{{job.link}}" target="_blank">Link da empresa</a></span></p>
