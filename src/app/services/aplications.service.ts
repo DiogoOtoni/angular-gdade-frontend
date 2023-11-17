@@ -13,7 +13,7 @@ export class AplicationsService {
 	constructor(private httpClient: HttpClient) { }
 
 	list() {
-		return this.httpClient.get<IJob[]>(this.API).pipe(first(), delay(2000));
+		return this.httpClient.get<IJob[]>(this.API).pipe(first());
 	}
 
 	loadById(id: number) {

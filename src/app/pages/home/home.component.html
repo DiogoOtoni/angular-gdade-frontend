@@ -1,27 +1,9 @@
 <div class="container-home-page">
-	<div class="content-form-search">
-		<form>
-			<div class="search-area-show">
-				<div class="item-form-search">
-					<label for="select-search">Buscar por:</label>
-					<select name="select-search" id="select-search">
-						<option value="jobName" selected>Nome</option>
-						<option value="descricao">Descricao</option>
-						<option value="empresa">Empresa</option>
-						<option value="empAnun">Empresa anunciante</option>
-					</select>
-				</div>
-				<div class="item-form-search">
-					<input type="text" name="search-input" id="search-input" placeholder="Pesquisar" />
-				</div>
-				<div class="buttons">
-					<button type="submit" class="btn-terc" id="search-button">
-						Buscar
-					</button>
-				</div>
-			</div>
-		</form>
+
+	<div class="content-cards">
+		<app-jobs-search></app-jobs-search>
 	</div>
+
 	<div class="content-cards">
 		<app-aplication-card
 		*ngIf="jobs$ | async as jobs; else espera"

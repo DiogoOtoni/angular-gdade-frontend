@@ -5,13 +5,3 @@
 	justify-content: center;
 }
 
-.search-area-show {
-	display: flex;
-	flex-direction: row;
-
-	align-items: center;
-	flex-wrap: wrap;
-}
-.item-form-search {
-	margin: 0.3rem;
-}
