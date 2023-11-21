@@ -17,12 +17,16 @@ export class HomeComponent implements OnInit {
 
 	constructor(private aplicationsService: AplicationsService){}
 
+	/**
+	 * Ao iniciar o componente
+	 * jobsData recebe o vetor de IJobs ao "contrario - reverse"
+	 */
 	ngOnInit(): void {
 		this.aplicationsService.list().subscribe(
-			data => {
-				this.jobsData = data
-			},
-			error => console.log(error)
+			{
+				next: data => this.jobsData = data.reverse(),
+				error: error => console.log(error)
+			}
 		)
 	}
 
