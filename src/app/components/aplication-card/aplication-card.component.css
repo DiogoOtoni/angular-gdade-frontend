@@ -7,7 +7,6 @@
 }
 
 .content-cards-jobs {
-	box-shadow: 5px 5px 20px #76aaef, -5px -5px 20px #5f5f5f;
 
 	padding: 1rem;
 	border-radius: 1rem;
@@ -16,6 +15,18 @@
 
 	line-height: 1.5rem;
 }
+
+.shadow-ativo {
+	box-shadow: 5px 5px 20px #297ae4, -5px -5px 20px #5f5f5f;
+}
+
+.shadow-inativo {
+	box-shadow: 5px 5px 20px #ef7676, -5px -5px 20px #c0c0c0;
+}
+
+/* shadow ativo = azul
+	shadow inativo = vermelho
+ */
 
 .id-destaque {
 	font-weight: bold;

@@ -1,5 +1,8 @@
 <div class="container-cards">
-	<div class="content-cards-jobs" *ngFor="let job of jobs">
+	<div class="content-cards-jobs"
+		*ngFor="let job of jobs"
+		[ngClass]="job.activeStatus ? 'shadow-ativo' : 'shadow-inativo'"
+	>
 		<div class="header-destaque">
 			<p> <span>#{{job.id_job}}</span> </p>
 			<p *ngIf="job.activeStatus; else elseBlock"> ATIVO </p>
@@ -8,10 +11,8 @@
 			</ng-template>
 		</div>
 		<h3>{{job.jobName}}</h3>
-		<p> <span class="span-destaque">Empresa:</span> {{job.empresa}} </p>
-		<p> <span class="span-destaque"><a href="{{job.link}}" target="_blank">Link da empresa</a></span></p>
-		<p> <span class="span-destaque">Anunciante:</span> {{job.empAnun}}</p>
-		<p> <span class="span-destaque"><a href="{{job.linkAnun}}" target="_blank">Link do anúncio</a></span></p>
+		<p> <span class="span-destaque">Empresa: <a href="{{job.link}}" target="_blank">{{job.empresa}}</a></span>  </p>
+		<p> <span class="span-destaque">Anúncio: <a href="{{job.linkAnun}}" target="_blank">{{job.empAnun}}</a></span> </p>
 		<p> <span class="span-destaque">{{job.data}}</span></p>
 		<p> <span class="span-destaque">{{job.hora}}</span></p>
 		<div class="button-details">
