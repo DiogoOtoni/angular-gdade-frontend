@@ -44,36 +44,36 @@ export class JobsFormComponent implements OnInit {
 			}
 		);
 
-		if(job.id_job){
+		if (job.id_job) {
 			this.contem = true;
 			this.idShow = job.id_job;
 		}
-		if(job.activeStatus){
+		if (job.activeStatus) {
 			this.activeStatus = job.activeStatus;
 		}
 	}
 
-	private retrieveJobsStatusDescription(job: IJob){
+	private retrieveJobsStatusDescription(job: IJob) {
 		const statusDescription = [];
 
-		if(job.statusDescription){
+		if (job.statusDescription) {
 			job.statusDescription.forEach(statusDesc => statusDescription.push(this.createStatusDescription(statusDesc)));
-		}else{
+		} else {
 			statusDescription.push(this.createStatusDescription())
 		}
 
 		return statusDescription;
 	}
 
-	private createStatusDescription(statusDesc: string = ''){
+	private createStatusDescription(statusDesc: string = '') {
 		return this.formBuilder.control(statusDesc)
 	}
 
-	get statusDescription(){
+	get statusDescription() {
 		return this.form.get('statusDescription') as FormArray;
 	}
 
-	addStatusDescription(){
+	addStatusDescription() {
 		this.statusDescription.push(this.formBuilder.control(''));
 	}
 
@@ -81,30 +81,31 @@ export class JobsFormComponent implements OnInit {
 		const id = Number(this.route.snapshot.paramMap.get("id"));
 		console.log(id)
 
-		this.aplicationsService.save(this.form.value, id).subscribe(
-			data => console.log('enviou'),
-			error => console.log(error)
-		)
+		this.aplicationsService.save(this.form.value, id).subscribe({
+			next: data => console.log(data),
+			error: erro => console.log(erro)
+		});
 
-		console.log(this.form.value)
 		this.goToHome();
 	}
 
-	goToHome(){
+	goToHome() {
 		this.router.navigate([''])
 	}
 
 	onCancel() {
 		this.goToHome();
-		// this.location.back();
 	}
 
-	onDelete(){
-		this.aplicationsService.remove(this.idShow).subscribe(
-			data => console.log(data),
-			error => console.log(error)
-		);
+	reloadPage(){
+		window.location.reload();
+	}
 
-		this.goToHome();
+	onDelete() {
+		this.aplicationsService.remove(this.idShow).subscribe({
+			next: data => console.log(data),
+			error: erro => console.log(erro)
+		});
+		this.reloadPage();
 	}
 }
