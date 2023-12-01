@@ -13,8 +13,17 @@
 		<h3>{{job.jobName}}</h3>
 		<p> <span class="span-destaque">Empresa: <a href="{{job.link}}" target="_blank">{{job.empresa}}</a></span>  </p>
 		<p> <span class="span-destaque">Anúncio: <a href="{{job.linkAnun}}" target="_blank">{{job.empAnun}}</a></span> </p>
-		<p> <span class="span-destaque">{{job.data}}</span></p>
-		<p> <span class="span-destaque">{{job.hora}}</span></p>
+		<div class="show-date-time">
+			<div class="show-start">
+				<p> <span class="span-destaque">{{job.data}}</span></p>
+				<p> <span class="span-destaque">{{job.hora}}</span></p>
+			</div>
+			<div class="show-end">
+				<p> <span class="span-destaque">{{job.lastUpdatedDay}}</span></p>
+				<p> <span class="span-destaque">{{job.lastUpdatedTime}}</span></p>
+
+			</div>
+		</div>
 		<div class="button-details">
 			<button class="btn-terc" (click)="toDetails(job)">DETALHES</button>
 		</div>

@@ -33,6 +33,12 @@ export class HomeComponent implements OnInit {
 	findBySearch() {
 		const regex = new RegExp(this.inputSearchValue, "ig");
 		if (this.jobsData != null && this.jobsData.length > 0 && this.inputSelectValue != '') {
+			if(this.inputSelectValue == 'inactives'){
+				return this.jobsData.filter((item) => item.activeStatus == false)
+			}
+			if(this.inputSelectValue == 'actives'){
+				return this.jobsData.filter((item) => item.activeStatus == true)
+			}
 			return this.jobsData.filter((item) => {
 				if (this.inputSelectValue == 'jobName') {
 					const myString = item.jobName;
