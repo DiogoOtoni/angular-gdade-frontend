@@ -18,11 +18,13 @@
 					<input [(ngModel)]="inputSearchValue" type="text" name="search-input" id="search-input"
 						placeholder="Pesquisar" />
 				</div>
+
 			</div>
 		</div>
 	</div>
 
 	<div *ngIf="findBySearch() as jobs;">
+		<p class="total-cards">Total: {{jobs.length}}</p>
 		<app-aplication-card [jobs]="jobs"></app-aplication-card>
 	</div>
 

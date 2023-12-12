@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, catchError, of } from 'rxjs';
 
 import { AplicationsService } from 'src/app/services/aplications.service';
 import {IJob} from 'src/app/model/IJob';
@@ -39,6 +38,7 @@ export class HomeComponent implements OnInit {
 			if(this.inputSelectValue == 'actives'){
 				return this.jobsData.filter((item) => item.activeStatus == true)
 			}
+
 			return this.jobsData.filter((item) => {
 				if (this.inputSelectValue == 'jobName') {
 					const myString = item.jobName;
@@ -59,6 +59,7 @@ export class HomeComponent implements OnInit {
 				return false
 			});
 		}else{
+
 			return this.jobsData;
 		}
 	}
