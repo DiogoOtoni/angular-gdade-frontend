@@ -57,6 +57,19 @@
 						Cancelar
 					</button>
 				</div>
+				<div class="show-date-time" *ngIf="idShow">
+					<div class="show-start">
+						<p>CRIADO EM:</p>
+						<p> <span class="span-destaque">{{jobData.data}}</span></p>
+						<p> <span class="span-destaque">{{jobData.hora}}</span></p>
+					</div>
+					<div class="show-end">
+						<p>MODIFICADO EM:</p>
+						<p> <span class="span-destaque">{{jobData.lastUpdatedDay}}</span></p>
+						<p> <span class="span-destaque">{{jobData.lastUpdatedTime}}</span></p>
+
+					</div>
+				</div>
 			</div>
 		</form>
 	</div>

@@ -17,6 +17,7 @@ export class JobsFormComponent implements OnInit {
 	@Input() contem: boolean = false;
 	@Input() idShow!: number;
 	@Input() activeStatus!: boolean;
+	@Input() jobData!: IJob;
 
 	constructor(
 		private formBuilder: NonNullableFormBuilder,
@@ -47,6 +48,7 @@ export class JobsFormComponent implements OnInit {
 		if (job.id_job) {
 			this.contem = true;
 			this.idShow = job.id_job;
+			this.jobData = job;
 		}
 		if (job.activeStatus) {
 			this.activeStatus = job.activeStatus;
@@ -89,7 +91,7 @@ export class JobsFormComponent implements OnInit {
 		this.goToHome();
 	}
 
-	goToHome() {
+	private goToHome() {
 		this.router.navigate([''])
 	}
 
@@ -97,7 +99,7 @@ export class JobsFormComponent implements OnInit {
 		this.goToHome();
 	}
 
-	reloadPage(){
+	private reloadPage(){
 		window.location.reload();
 	}
 
